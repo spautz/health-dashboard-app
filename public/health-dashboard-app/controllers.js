@@ -25,6 +25,11 @@
             $scope.diet     = 'A';
             $scope.exercise = 'C';
             $scope.stress   = 'B';
+            $scope.showDetails = false;
+
+            $scope.toggleShowDetails = function() {
+                this.showDetails = !this.showDetails;
+            };
         }
     ]);
 
@@ -48,6 +53,13 @@
             $scope.walkDistance = 77.0;   // km
             $scope.jogDistance  = 77.0;   // km
             $scope.runDistance  = 77.0;   // km
+
+            $scope.totalDistance = function() {
+                return parseInt($scope.walkDistance || 0, 10) +
+                       parseInt($scope.jogDistance  || 0, 10) +
+                       parseInt($scope.runDistance  || 0, 10);
+            };
+
         }
     ]);
 

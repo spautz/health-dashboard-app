@@ -1,14 +1,9 @@
 (function(angular) {
     'use strict';
 
-    // The app itself
+    // This app doesn't actually do anything; it's just a wrapper for some controllers
     var healthDashboardApp = angular.module('healthDashboardApp', [
         'healthDashboardApp.controllers'
-
-    ]).config([
-        function() {
-            console.log('Hello World', arguments, this);
-        }
     ]);
 
 }(angular));

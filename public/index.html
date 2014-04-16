@@ -35,17 +35,34 @@
       <div class="col-xs-12 col-md-6 col-lg-4" ng-controller="healthScoreCtrl">
         Health Score:
         {{overall}}
+        <div ng-show="showDetails">
+          diet: {{diet}},
+          exercise: {{exercise}},
+          stress: {{stress}},
+          <button type="button" class="btn btn-link" ng-click="toggleShowDetails()">
+            hide details
+          </button>
+        </div>
+        <div ng-hide="showDetails">
+          <button type="button" class="btn btn-link" ng-click="toggleShowDetails()">
+            show details
+          </button>
+        </div>
       </div>
 
       <div class="col-xs-12 col-md-6 col-lg-4" ng-controller="vitalsCtrl">
         Vitals:
-        weight: {{weight}}kg,
-        height: {{height}}kg,
+        weight: {{weight}} kg,
+        height: {{height}} m,
+        blood pressure: {{bloodPressure.systolic}}/{{bloodPressure.diastolic}} mmHg
       </div>
 
       <div class="col-xs-12 col-md-6 col-lg-4" ng-controller="exerciseCtrl">
         Weekly Exercise:
-        total distance: {{walkDistance + jogDistance + runDistance}}km
+        Walking: <input ng-model="walkDistance" /> km
+        Jogging: <input ng-model="jogDistance" /> km
+        Running: <input ng-model="runDistance" /> km
+        total distance: {{totalDistance()}} km
       </div>
 
     </div>
