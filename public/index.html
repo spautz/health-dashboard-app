@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Medfusion Health Dashboard</title>
+  <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" media="screen,print" rel="stylesheet" type="text/css" >
+</head>
+<body>
+
+  <!--
+    I'm still getting a feel for the best patterns for ng-app, but putting a *functional* app on
+    document root feels very bad to me, despite all the guides and examples which do just that.
+    I'd much rather put something more middleware-like on the root, to handle system-wide routing
+    and authentication, etc, and only progress to the 'real', functionally-useful app when the
+    appropriate criteria are met -- or, more realistically, progress to any one of many possible
+    apps, depending on user permissions, context, etc.
+
+    That seems to be an awkward idea in Angular, however, with many debatable solutions.
+    So, I stuck the ng-app here instead. Yay?
+  -->
+  <div class="container" ng-app="healthDashboardApp">
+    <div class="row">
+      <div class="col-xs-12">
+        <h1>Hello World</h1>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="/bower_components/jquery/dist/jquery.js"></script>
+  <script type="text/javascript" src="/bower_components/angular/angular.js"></script>
+  <script type="text/javascript" src="/health-dashboard-app/app.js"></script>
+
+</body>
+</html>
