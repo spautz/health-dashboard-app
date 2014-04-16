@@ -13,6 +13,7 @@
         '$scope',
         function ($scope) {
             $scope.name = 'John Smith';
+            $scope.gender = 'male';
             $scope.age  = 34;
         }
     ]);
@@ -50,14 +51,15 @@
     appControllers.controller('exerciseCtrl', [
         '$scope',
         function ($scope) {
-            $scope.walkDistance = 77.0;   // km
-            $scope.jogDistance  = 77.0;   // km
-            $scope.runDistance  = 77.0;   // km
+            $scope.walkDistance = 10.0;   // km
+            $scope.jogDistance  =  5.0;   // km
+            $scope.runDistance  =  1.2;   // km
 
             $scope.totalDistance = function() {
-                return parseInt($scope.walkDistance || 0, 10) +
-                       parseInt($scope.jogDistance  || 0, 10) +
-                       parseInt($scope.runDistance  || 0, 10);
+                var sum = parseFloat($scope.walkDistance || 0) +
+                          parseFloat($scope.jogDistance  || 0) +
+                          parseFloat($scope.runDistance  || 0);
+                return sum.toFixed(1);
             };
 
         }

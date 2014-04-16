@@ -27,42 +27,99 @@
     </div>
     <div class="row">
 
-      <div class="col-xs-12 col-md-6 col-lg-4" ng-controller="demographicsCtrl">
-        Demographics:
-        {{name}}, age {{age}}
-      </div>
+      <!-- @TODO: a directive or something to make these panels have equal heights -->
 
-      <div class="col-xs-12 col-md-6 col-lg-4" ng-controller="healthScoreCtrl">
-        Health Score:
-        {{overall}}
-        <div ng-show="showDetails">
-          diet: {{diet}},
-          exercise: {{exercise}},
-          stress: {{stress}},
-          <button type="button" class="btn btn-link" ng-click="toggleShowDetails()">
-            hide details
-          </button>
-        </div>
-        <div ng-hide="showDetails">
-          <button type="button" class="btn btn-link" ng-click="toggleShowDetails()">
-            show details
-          </button>
+      <div class="col-xs-12 col-sm-6 col-lg-4" ng-controller="demographicsCtrl">
+        <div class="panel panel-info">
+          <div class="panel-heading">
+            Demographics
+          </div>
+          <div class="panel-body">
+            <p>
+              {{name}}
+            </p>
+            <p>
+              {{gender}}, age {{age}}
+            </p>
+          </div>
         </div>
       </div>
 
-      <div class="col-xs-12 col-md-6 col-lg-4" ng-controller="vitalsCtrl">
-        Vitals:
-        weight: {{weight}} kg,
-        height: {{height}} m,
-        blood pressure: {{bloodPressure.systolic}}/{{bloodPressure.diastolic}} mmHg
+      <div class="col-xs-12 col-sm-6 col-lg-4" ng-controller="healthScoreCtrl">
+        <div class="panel panel-success">
+          <div class="panel-heading">
+            Health Score
+          </div>
+          <div class="panel-body">
+            <div class="col-xs-2">
+              <h2>
+                {{overall}}
+              </h2>
+            </div>
+            <div class="col-xs-10" ng-show="showDetails">
+              <p>Diet: {{diet}}</p>
+              <p>Exercise: {{exercise}}</p>
+              <p>Stress: {{stress}}</p>
+              <button type="button" class="btn btn-link" ng-click="toggleShowDetails()">
+                hide details
+              </button>
+            </div>
+            <div class="col-xs-8" ng-hide="showDetails">
+              <button type="button" class="btn btn-link" ng-click="toggleShowDetails()">
+                show details
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div class="col-xs-12 col-md-6 col-lg-4" ng-controller="exerciseCtrl">
-        Weekly Exercise:
-        Walking: <input ng-model="walkDistance" /> km
-        Jogging: <input ng-model="jogDistance" /> km
-        Running: <input ng-model="runDistance" /> km
-        total distance: {{totalDistance()}} km
+      <div class="col-xs-12 col-sm-6 col-lg-4" ng-controller="vitalsCtrl">
+        <div class="panel panel-success">
+          <div class="panel-heading">
+            Vitals
+          </div>
+          <div class="panel-body">
+            <p>
+              Weight: {{weight}} kg
+            </p>
+            <p>
+              Height: {{height}} m
+            </p>
+            <p>
+              Blood Pressure: {{bloodPressure.systolic}}/{{bloodPressure.diastolic}} mmHg
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!--
+        If we don't clear when at >1200px width, when the layout goes to 3 panels per row,
+        expanding the "Health Score" panel will push this "Exercise" panel from the left spot
+        to the next available space -- all the way to the right edge.
+        Clearing in lg ensures that the panel gets pushed down instead of across.
+      -->
+      <div class="clearfix visible-lg"></div>
+
+      <div class="col-xs-12 col-sm-6 col-lg-4" ng-controller="exerciseCtrl">
+        <div class="panel panel-success">
+          <div class="panel-heading">
+            Exercise This Week
+          </div>
+          <div class="panel-body">
+            <p>
+              Walking: <input ng-model="walkDistance" size="3" /> kg
+            </p>
+            <p>
+              Jogging: <input ng-model="jogDistance" size="3" /> kg
+            </p>
+            <p>
+              Running: <input ng-model="runDistance" size="3" /> kg
+            </p>
+            <p>
+              Total Distance: {{totalDistance()}} km
+            </p>
+          </div>
+        </div>
       </div>
 
     </div>
