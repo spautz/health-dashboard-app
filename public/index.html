@@ -46,7 +46,7 @@
       </div>
 
       <div class="col-xs-12 col-sm-6 col-lg-4" ng-controller="healthScoreCtrl">
-        <div class="panel panel-success">
+        <div class="panel panel-default" ng-class="{ 'panel-success': isGoodScore(), 'panel-danger': !isGoodScore() }">
           <div class="panel-heading">
             Health Score
           </div>
@@ -74,7 +74,7 @@
       </div>
 
       <div class="col-xs-12 col-sm-6 col-lg-4" ng-controller="vitalsCtrl">
-        <div class="panel panel-success">
+        <div class="panel panel-default" ng-class="{ 'panel-success': isGoodScore(), 'panel-danger': !isGoodScore() }">
           <div class="panel-heading">
             Vitals
           </div>
@@ -101,7 +101,7 @@
       <div class="clearfix visible-lg"></div>
 
       <div class="col-xs-12 col-sm-6 col-lg-4" ng-controller="exerciseCtrl">
-        <div class="panel panel-success">
+        <div class="panel panel-default" ng-class="{ 'panel-success': isGoodScore(), 'panel-danger': !isGoodScore() }">
           <div class="panel-heading">
             Exercise This Week
           </div>

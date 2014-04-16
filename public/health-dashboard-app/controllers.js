@@ -22,12 +22,16 @@
     appControllers.controller('healthScoreCtrl', [
         '$scope',
         function ($scope) {
+            // @TODO: Maybe randomize these values, to make passOrFail more interesting
             $scope.overall  = 'B';
             $scope.diet     = 'A';
             $scope.exercise = 'C';
             $scope.stress   = 'B';
             $scope.showDetails = false;
 
+            $scope.isGoodScore = function() {
+                return (this.overall === 'A' || this.overall === 'B');
+            };
             $scope.toggleShowDetails = function() {
                 this.showDetails = !this.showDetails;
             };
@@ -43,7 +47,11 @@
             $scope.bloodPressure = {
                 systolic: 110,
                 diastolic: 65
-            }
+            };
+
+            $scope.isGoodScore = function() {
+                return (this.bloodPressure.systolic < 140 && this.bloodPressure.diastolic < 90);
+            };
         }
     ]);
 
@@ -55,6 +63,10 @@
             $scope.jogDistance  =  5.0;   // km
             $scope.runDistance  =  1.2;   // km
 
+
+            $scope.isGoodScore = function() {
+                return this.totalDistance() > 10;
+            };
             $scope.totalDistance = function() {
                 var sum = parseFloat($scope.walkDistance || 0) +
                           parseFloat($scope.jogDistance  || 0) +
