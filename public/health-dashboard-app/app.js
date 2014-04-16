@@ -1,13 +1,13 @@
 (function(angular) {
     'use strict';
 
+    // The app itself
     var healthDashboardApp = angular.module('healthDashboardApp', [
-        // no dependencies yet
-    ]);
+        'healthDashboardApp.controllers'
 
-    healthDashboardApp.config([
+    ]).config([
         function() {
-            console.log('Hello World');
+            console.log('Hello World', arguments, this);
         }
     ]);
 

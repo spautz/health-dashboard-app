@@ -22,14 +22,41 @@
   <div class="container" ng-app="healthDashboardApp">
     <div class="row">
       <div class="col-xs-12">
-        <h1>Hello World</h1>
+        <h1>Health Dashboard</h1>
       </div>
+    </div>
+    <div class="row">
+
+      <div class="col-xs-12 col-md-6 col-lg-4" ng-controller="demographicsCtrl">
+        Demographics:
+        {{name}}, age {{age}}
+      </div>
+
+      <div class="col-xs-12 col-md-6 col-lg-4" ng-controller="healthScoreCtrl">
+        Health Score:
+        {{overall}}
+      </div>
+
+      <div class="col-xs-12 col-md-6 col-lg-4" ng-controller="vitalsCtrl">
+        Vitals:
+        weight: {{weight}}kg,
+        height: {{height}}kg,
+      </div>
+
+      <div class="col-xs-12 col-md-6 col-lg-4" ng-controller="exerciseCtrl">
+        Weekly Exercise:
+        total distance: {{walkDistance + jogDistance + runDistance}}km
+      </div>
+
     </div>
   </div>
 
+  <!-- This really need a minifier -->
   <script type="text/javascript" src="/bower_components/jquery/dist/jquery.js"></script>
   <script type="text/javascript" src="/bower_components/angular/angular.js"></script>
+
   <script type="text/javascript" src="/health-dashboard-app/app.js"></script>
+  <script type="text/javascript" src="/health-dashboard-app/controllers.js"></script>
 
 </body>
 </html>
